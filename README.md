@@ -14,20 +14,19 @@ These instructions will help you set up the project on your local machine.
 
 ### Installation
 
-1. Clone the repository:  
-```git clone https://github.com/yourusername/AI-Storyteller-Video-Generator.git```
-2. Navigate to the project directory:
-```cd AI-Storyteller-Video-Generator```
-3. Install the required Python packages:
-```pip install -r requirements.txt```
-4. Create a new file named `api_keys.env` in the project directory and add your API keys:
-```OPENAI_API_KEY=your_openai_api_key
-ELEVENLABS_API_KEY=your_elevenlabs_api_key```
+1. Clone the repository: ```git clone https://github.com/yourusername/AI-Storyteller-Video-Generator.git```
+2. Navigate to the project directory: ```cd AI-Storyteller-Video-Generator```
+3. Install the required Python packages: ```pip install -r requirements.txt```
+4. Create a new file named `.env` in the project directory and add your API keys:
+```OPENAI_API_KEY=your_openai_api_key```
+```ELEVENLABS_API_KEY=your_elevenlabs_api_key```
+
 Replace `your_openai_api_key` and `your_elevenlabs_api_key` with your actual API keys.
 
 ### Usage
 
-Run the `autovideo.py` script. Note this command is ran when in the same directory as autovideo.py. Output will be saved in the same folder as the code file:
+Run the `autovideo.py` script by navigating to the directory the script and `.env` are saved. Output will be generated in the same folder:
+
 ```python autovideo.py```
 
 
