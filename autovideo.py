@@ -12,29 +12,26 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from datetime import datetime
 import time
+import textwrap
 
 load_dotenv()
 
 timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-
-load_dotenv()
 
 # Step 1: Get user input
 story_prompt = input("Enter a story prompt: ")
 
 # Step 2: Use ChatGPT API to generate story
 def generate_story(prompt):
-    openai.api_key = ("OpenAI API KEY HERE")
-
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=prompt,
-        max_tokens=200,
+        max_tokens=400,
         n=1,
         stop=None,
         temperature=0.7,
     )
-
     story = response.choices[0].text.strip()
     return story
 
@@ -80,18 +77,17 @@ def save_images(images):
 
 
 # Step 5: Use Elvenlabs API to generate voiceover
-
 def generate_voiceover(story, save_file=False):
     headers = {
-        "xi-api-key": "ElvenLabs API KEY HERE",
+        "xi-api-key": os.getenv("ELEVENLABS_API_KEY"),
         "Content-Type": "application/json",
         "accept": "audio/mpeg"
     }
     data = {
         "text": story, 
-        "voice_settings": {"stability": 0, "similarity_boost": 0}
+        "voice_settings": {"stability": 0.5, "similarity_boost": 0}
     }
-    response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM", headers=headers, json=data)
+    response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/GeEcOfn26FwkYBeN9dfZ", headers=headers, json=data)
         # Voices: 21m00Tcm4TlvDq8ikWAM  yoZ06aMxZJJ28mfd3POQ  AZnzlk1XvdvUeBnXmlld
     if response.status_code == 200:
         if save_file:
@@ -118,9 +114,40 @@ def download_image(url, filename):
 def add_text_to_image(image_path, text):
     image = Image.open(image_path)
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("Gabriola.ttf", size=50)
-    draw.text((50, 50), text, font=font, fill=(255, 255, 255))
+    font = ImageFont.truetype("Gabriola.ttf", size=40)  # Change the font size here
+    text_color = (64, 64, 64)  # Black color
+    bg_color = (255, 204, 0, 120)  # White semi-transparent background color
+    padding = 50
+    max_width = image.width - 2 * padding
+
+    # Calculate the average character width
+    avg_char_width = sum(font.getsize(char)[0] for char in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") / 52
+
+    # Calculate the maximum number of characters per line
+    max_chars_per_line = int(max_width / avg_char_width)
+
+    # Wrap the text
+    wrapped_text = textwrap.wrap(text, width=max_chars_per_line)
+
+    # Calculate the height of the wrapped text
+    text_height = len(wrapped_text) * font.getsize(wrapped_text[0])[1]
+
+    # Calculate the y-coordinate to position the text at the bottom
+    y_position = image.height - text_height - padding
+
+    # Draw a background rectangle behind the text
+    bg_rect_height = text_height + 2 * padding
+    bg_rect_y_position = y_position - padding
+    draw.rectangle([(padding, bg_rect_y_position), (image.width - padding, bg_rect_y_position + bg_rect_height)], fill=bg_color)
+
+    # Draw each line of the wrapped text
+    for idx, line in enumerate(wrapped_text):
+        line_y_position = y_position + idx * font.getsize(line)[1]
+        draw.text((padding, line_y_position), line, font=font, fill=text_color)
+
     image.save(image_path)
+
+
 
 def create_video(images, voiceover_content, story):
     # Save voiceover
