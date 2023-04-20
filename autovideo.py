@@ -76,7 +76,7 @@ def save_images(images):
         download_image(image_url, f"image_{timestamp}_{idx}.png")
 
 
-# Step 5: Use Elvenlabs API to generate voiceover
+# Step 5: Use Elevenlabs API to generate voiceover
 def generate_voiceover(story, save_file=False):
     headers = {
         "xi-api-key": os.getenv("ELEVENLABS_API_KEY"),
@@ -87,8 +87,8 @@ def generate_voiceover(story, save_file=False):
         "text": story, 
         "voice_settings": {"stability": 0.5, "similarity_boost": 0}
     }
-    response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/GeEcOfn26FwkYBeN9dfZ", headers=headers, json=data)
-        # Voices: 21m00Tcm4TlvDq8ikWAM  yoZ06aMxZJJ28mfd3POQ  AZnzlk1XvdvUeBnXmlld
+    response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM", headers=headers, json=data)
+        # Voices: yoZ06aMxZJJ28mfd3POQ  AZnzlk1XvdvUeBnXmlld (More available on ElevenLabs site)
     if response.status_code == 200:
         if save_file:
             with open("file.mp3", "wb") as f:
