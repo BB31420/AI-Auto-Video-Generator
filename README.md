@@ -1,7 +1,10 @@
 # AI-Auto-Video-Generator
 An AI-powered storytelling video generator that takes user input as a story prompt, generates a story using OpenAI's GPT-3, creates images using OpenAI's DALL-E, adds voiceover using ElevenLabs API, and combines the elements into a video.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b-zo4Laj-Ks" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[![Example 1](https://img.youtube.com/vi/b-zo4Laj-Ks/0.jpg)](https://www.youtube.com/watch?v=b-zo4Laj-Ks)
+[![Example 2](https://img.youtube.com/vi/ExBBwcFDId0/0.jpg)](https://www.youtube.com/watch?v=ExBBwcFDId0)
+
+
 
 
 ## Getting Started
