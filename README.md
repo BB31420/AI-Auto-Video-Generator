@@ -24,7 +24,7 @@ These instructions will help you set up the project on your local machine.
 
 ### Usage
 
-1. Create a new file named .env in the project directory and add your API keys: 
+1. Edit the file named .env in the project directory and add your API keys: 
 
 `OPENAI_API_KEY=your_openai_api_key`
 
