@@ -1,0 +1,6 @@
+openai
+moviepy
+Pillow
+requests
+python-dotenv
+nltk
