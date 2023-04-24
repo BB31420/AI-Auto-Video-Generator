@@ -21,7 +21,7 @@ These instructions will help you set up the project on your local machine.
 
 ### Installation
 
-1. Clone the repository: ```git clone https://github.com/yourusername/AI-Storyteller-Video-Generator.git```
+1. Clone the repository: ```git clone https://github.com/BB31420/AI-Auto-Video-Generator.git```
 2. Navigate to the project directory: ```cd AI-Auto-Video-Generator```
 3. Install the required Python packages: ```pip install -r requirements.txt```
 4. Install FFmpeg:
