@@ -15,11 +15,7 @@ import time
 import textwrap
 
 load_dotenv()
-
 timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-
-# Step 1: Get user input
-story_prompt = input("Enter a story prompt: ")
 
 # Step 2: Use ChatGPT API to generate story
 def generate_story(prompt):
@@ -178,28 +174,35 @@ def create_video(images, voiceover_content, story):
     os.remove(voiceover_filename)
 # ...
 
-nltk.download("punkt")
-nltk.download("stopwords")
+def main():
+    # Step 1: Get user input
+    story_prompt = input("Enter a story prompt: ")
 
-story = generate_story(story_prompt)
-print("Story generated successfully.")
-save_story(story)
+    nltk.download("punkt")
+    nltk.download("stopwords")
 
-image_prompts = extract_image_prompts(story)
-print("Image prompts extracted.")
+    story = generate_story(story_prompt)
+    print("Story generated successfully.")
+    save_story(story)
 
-images = generate_images(image_prompts)
-print("Images generated successfully.")
-save_images(images)
+    image_prompts = extract_image_prompts(story)
+    print("Image prompts extracted.")
 
-# Generate the voiceover
-voiceover = generate_voiceover(story)
-if voiceover:
-    print("Voiceover generated successfully.")
-    timestamp = int(time.time())  # Get the current timestamp
-    save_voiceover(voiceover, timestamp)  # Pass the timestamp as the second argument
-else:
-    print("Voiceover generation failed.")
+    images = generate_images(image_prompts)
+    print("Images generated successfully.")
+    save_images(images)
 
-create_video(images, voiceover, story)
-print("Video created successfully.")
+    # Generate the voiceover
+    voiceover = generate_voiceover(story)
+    if voiceover:
+        print("Voiceover generated successfully.")
+        timestamp = int(time.time())  # Get the current timestamp
+        save_voiceover(voiceover, timestamp)  # Pass the timestamp as the second argument
+    else:
+        print("Voiceover generation failed.")
+
+    create_video(images, voiceover, story)
+    print("Video created successfully.")
+
+if __name__ == "__main__":
+    main()
