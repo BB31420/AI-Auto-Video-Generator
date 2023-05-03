@@ -9,7 +9,7 @@ def generate_voiceover(story, save_file=False):
         "accept": "audio/mpeg"
     }
     data = {
-        "text": story + "..Comment with your favorite fact about crested geckos...", 
+        "text": story + "..Comment with your favorite fact...", 
         "voice_settings": {"stability": 0.6, "similarity_boost": 0.4}
     }
     response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/GeEcOfn26FwkYBeN9dfZ", headers=headers, json=data)
