@@ -42,7 +42,7 @@ Replace your_openai_api_key and your_elevenlabs_api_key with your actual API key
 
 2. Run the autovideo.py script by navigating to the directory the script and .env file are saved. Output will be generated in the same folder: 
 
-`python autovideo.py`
+`python main.py`
 
 3. Follow the prompts to enter a story prompt and generate a video.
 
