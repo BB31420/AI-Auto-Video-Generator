@@ -20,6 +20,6 @@ def generate_story(prompt):
     print(story)
     return story
 
-def save_story(story):
+def save_story(story, prompt):
     with open(f"story_{timestamp}.txt", "w") as f:
-        f.write(story)
+        f.write(prompt + "\n" + story)

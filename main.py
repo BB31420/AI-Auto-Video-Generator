@@ -13,7 +13,7 @@ def main():
 
     story = generate_story(story_prompt)
     print("Story generated successfully.")
-    save_story(story)
+    save_story(story, story_prompt)
 
     # Generate image Prompts
     image_prompts = extract_image_prompts(story)
