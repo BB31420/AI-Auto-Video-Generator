@@ -3,7 +3,7 @@ An AI-powered storytelling video generator that takes user input as a story prom
 
 
 [![Example 0](https://img.youtube.com/vi/FbpV2aZWKqw/0.jpg)](https://www.youtube.com/watch?v=FbpV2aZWKqw)
-[![Example 1](https://img.youtube.com/vi/b-Vzcras5Snyo/0.jpg)](https://www.youtube.com/watch?v=Vzcras5Snyo)
+[![Example 1](https://img.youtube.com/vi/Vzcras5Snyo/0.jpg)](https://www.youtube.com/watch?v=Vzcras5Snyo)
 
 
 
