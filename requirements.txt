@@ -3,4 +3,4 @@ moviepy
 Pillow
 requests
 python-dotenv
-nltk
+spacy
