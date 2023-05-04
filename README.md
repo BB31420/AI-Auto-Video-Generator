@@ -28,6 +28,9 @@ These instructions will help you set up the project on your local machine.
  - On macOS, you can use Homebrew: brew install ffmpeg
  - On Linux, you can use your package manager (e.g., apt-get install ffmpeg on Ubuntu)
  - On Windows, you can download an installer from the official FFmpeg website
+5. Install spacy ```python -m spacy download en_core_web_sm```
+6. There may be one additional install requirement missing from these instructions. Please let me know if you encounter issues running the project or needed to install additional libraries or commands. Will update with a lockfile soon.
+
 
 
 ### Usage
