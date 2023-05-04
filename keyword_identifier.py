@@ -9,7 +9,7 @@ def extract_image_prompts(story, num_prompts=5):
     nlp = spacy.load('en_core_web_sm')
 
     # Custom list of uninformative words
-    uninformative_words = ['can', 'to', 'which', 'you', 'your', 'that']
+    uninformative_words = ['can', 'to', 'which', 'you', 'your', 'that','their','they']
 
     # Split the story into individual sentences
     doc = nlp(story)
@@ -57,5 +57,20 @@ def extract_image_prompts(story, num_prompts=5):
             image_prompts.append(image_prompts[i])
             i = (i + 1) % len(image_prompts)  # cycle through existing prompts
 
-    print(image_prompts)
-    return image_prompts
+    print("\nGenerated Image Prompts:")
+    for idx, prompt in enumerate(image_prompts, start=1):
+        print(f"{idx}: {prompt}")
+    
+    # Ask the user whether they want to proceed or enter their own prompts
+    user_input = input("\nDo you want to proceed with these prompts? (y/n): ")
+    if user_input.lower() == "y":
+        return image_prompts
+    elif user_input.lower() == "n":
+        user_prompts = []
+        print("\nEnter your own image prompts:")
+        for i in range(num_prompts):
+            user_prompt = input(f"Prompt {i+1}: ")
+            user_prompts.append(user_prompt)
+        return user_prompts
+    else:
+        print("Invalid input. Please enter 'y' to proceed with the generated prompts or 'n' to enter your own prompts.")

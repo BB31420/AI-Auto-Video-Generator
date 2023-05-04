@@ -7,19 +7,32 @@ load_dotenv()
 timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 
 def generate_story(prompt):
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    response = openai.Completion.create(
-        engine = "text-davinci-003",
-        prompt = prompt,
-        max_tokens = 400,
-        n = 1,
-        stop = None,
-        temperature = 0.7,
-    )
-    story = response.choices[0].text.strip()
-    print(story)
-    return story
+    while True:
+        openai.api_key = os.getenv("OPENAI_API_KEY")
+        response = openai.Completion.create(
+            engine = "text-davinci-003",
+            prompt = prompt,
+            max_tokens = 400,
+            n = 1,
+            stop = None,
+            temperature = 0.7,
+        )
+        story = response.choices[0].text.strip()
+        print("Generated Story:")
+        print(story)
+        
+        #Ask the user whether they want to proceed or generate another story
+        user_input = input("\nDo you want to proceed with this? (y/n): ")
+        if user_input.lower() == "y":
+            return story, prompt  # Return the story and the final prompt
+        elif user_input.lower() == "n":
+            prompt = input("\nEnter a new prompt: ")
+        else:
+            print("Invalid input. Please enter 'y' to proceed with the current story or 'n' to generate another story.")
 
-def save_story(story, prompt):
+
+def save_story_with_image_prompts(story, prompt, image_prompts):
     with open(f"story_{timestamp}.txt", "w") as f:
-        f.write(prompt + "\n" + story)
+        f.write(prompt + "\n" + story + "\n\nImage Prompts:\n")
+        for idx, image_prompt in enumerate(image_prompts, start=1):
+            f.write(f"{idx}: {image_prompt}\n")

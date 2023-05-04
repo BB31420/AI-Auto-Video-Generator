@@ -10,9 +10,9 @@ def generate_voiceover(story, save_file=False):
     }
     data = {
         "text": story + "..Comment with your favorite fact...", 
-        "voice_settings": {"stability": 0.6, "similarity_boost": 0.4}
+        "voice_settings": {"stability": 0.3, "similarity_boost": 0.3}
     }
-    response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/GeEcOfn26FwkYBeN9dfZ", headers=headers, json=data)
+    response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/AZnzlk1XvdvUeBnXmlld", headers=headers, json=data)
     if response.status_code == 200:
         if save_file:
             with open("file.mp3", "wb") as f:
