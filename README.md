@@ -6,7 +6,7 @@ An AI-powered storytelling video generator that takes user input as a story prom
 [![Example 1](https://img.youtube.com/vi/Vzcras5Snyo/0.jpg)](https://www.youtube.com/watch?v=Vzcras5Snyo)
 
 
-
+### To DO: Add subtitle generation, font customization, etc. Add zoom in feature for images to add a sense of motion. All contributors are welcome. 
 
 
 ## Getting Started
@@ -85,7 +85,7 @@ response = openai.Completion.create(
     temperature=0.7,
 )
 ```
-3. **Changing text overlay and background color**
+3. **Changing text overlay and background color** (This feature is depreciated but subtitling will be added back in the future with better functionality)
 
 Modify the add_text_to_image() function to change text overlay and background color:
 * For haikus, set the font size to a smaller value, and change text color to a dark green and background color to a lighter green:
