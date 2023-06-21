@@ -23,9 +23,9 @@ def generate_story(prompt):
         
         # Ask the user whether they want to proceed, generate another story, or write their own story
         user_input = input("\nDo you want to proceed with this? (y/n/custom): ")
-        if user_input.lower() == "yes":
+        if user_input.lower() == "y":
             return story, prompt  # Return both the story and the prompt used
-        elif user_input.lower() == "no":
+        elif user_input.lower() == "n":
             prompt = input("\nEnter a new prompt: ")
         elif user_input.lower() == "custom":
             custom_story = input("Write your custom story: ")
