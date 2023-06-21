@@ -22,7 +22,7 @@ def generate_story(prompt):
         print(story)
         
         # Ask the user whether they want to proceed, generate another story, or write their own story
-        user_input = input("\nDo you want to proceed with this? (yes/no/custom): ")
+        user_input = input("\nDo you want to proceed with this? (y/n/custom): ")
         if user_input.lower() == "yes":
             return story, prompt  # Return both the story and the prompt used
         elif user_input.lower() == "no":
@@ -31,7 +31,7 @@ def generate_story(prompt):
             custom_story = input("Write your custom story: ")
             return custom_story, prompt  # Return the custom story and the original prompt
         else:
-            print("Invalid input. Please enter 'yes' to proceed with the current story, 'no' to generate another story, or 'custom' to write your own story.")
+            print("Invalid input. Please enter 'y' to proceed with the current story, 'n' to generate another story, or 'custom' to write your own story.")
 
 def save_story_with_image_prompts(story, prompt, image_prompts):
     with open(f"story_{timestamp}.txt", "w") as f:
