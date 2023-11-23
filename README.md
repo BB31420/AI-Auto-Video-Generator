@@ -17,18 +17,13 @@ These instructions will help you set up the project on your local machine.
 
 - Python 3.6 or higher
 - Pip (Python package manager)
-- FFmpeg (a command-line program for video processing)
 
 ### Installation
 
 1. Clone the repository: ```git clone https://github.com/BB31420/AI-Auto-Video-Generator.git```
 2. Navigate to the project directory: ```cd AI-Auto-Video-Generator```
 3. Install the required Python packages: ```pip install -r requirements.txt```
-4. Install FFmpeg:
- - On macOS, you can use Homebrew: brew install ffmpeg
- - On Linux, you can use your package manager (e.g., apt-get install ffmpeg on Ubuntu)
- - On Windows, you can download an installer from the official FFmpeg website
-5. Install spacy ```python -m spacy download en_core_web_sm```
+4. Install spacy ```python -m spacy download en_core_web_sm```
 
 
 
@@ -51,7 +46,6 @@ Replace your_openai_api_key and your_elevenlabs_api_key with your actual API key
 
 ### Troubleshooting
 * If you encounter errors related to missing dependencies, make sure you have installed the required Python packages by running `pip install -r requirements.txt`
-* If you encounter errors related to FFmpeg, make sure it is installed on your system and available in your system's PATH.
 * https://platform.openai.com/account/api-keys
 * https://beta.elevenlabs.io/subscription Click user icon then profile
 * Keep your keys safe
