@@ -116,7 +116,7 @@ image_clips = [mpy.ImageClip(img).set_duration(5) for img in image_filenames]
 6 . **Changing the number of images**
 * To change the number of images, update the num_prompts parameter in the extract_image_prompts() function. For example, to generate 6 images, change the function call as follows:
  ```
-image_prompts = extract_image_prompts(story, num_prompts=6)
+def extract_image_prompts(story, num_prompts=5):
 ```
 7. **Changing the voice used for the voiceover**
 * To change the voice for the voiceover, modify the generate_voiceover() function. Update the URL used in the requests.post() call with the desired voice ID. For example, to use a different voice, replace the existing voice ID with a new one (e.g., "21m00Tcm4TlvDq8ikWAM", "yoZ06aMxZJJ28mfd3POQ", or "AZnzlk1XvdvUeBnXmlld"):
