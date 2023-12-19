@@ -2,6 +2,7 @@ import openai
 import os
 import requests
 from datetime import datetime
+import time
 
 timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -22,7 +23,7 @@ def generate_images(image_prompts):
         else:
             print(f"Error generating image for prompt '{prompt}'")
             return []
-
+        time.sleep(12)    
     return images
 
 def save_images(images, timestamp):
