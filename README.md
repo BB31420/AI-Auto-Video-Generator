@@ -22,9 +22,13 @@ These instructions will help you set up the project on your local machine.
 ### Create Virtual Environment
 This helps keep packages seperate to avoid conflicts. Use the venv when running the code and before installing the required packages. The code requires openai 0.28, which is specified in the requirements.txt. 
 
-1. Navigate to the project directory - Windows: ```python -m venv .venv``` then ```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser``` Linux: ```python3 -m venv .venv```
-2. Activate the venv - Windows: ```venv\Scripts\Activate.ps1``` Linux: ```source .venv/bin/activate```
-3. Close venv when finished running main.py, it needs to be active to use the packages ```deactivate```
+1. Navigate to the project directory with ```cd``` ```ls -la```
+ * Windows: ```python -m venv .venv``` then ```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser```
+ * Linux: ```python3 -m venv .venv```
+3. Activate the venv
+ * Windows: ```venv\Scripts\Activate.ps1```
+ * Linux: ```source .venv/bin/activate```
+4. Close venv when finished running main.py, it needs to be active to use the packages ```deactivate```
 
 
 
@@ -97,37 +101,17 @@ response = openai.Completion.create(
     temperature=0.7,
 )
 ```
-3. **Changing text overlay and background color** (This feature is depreciated but subtitling will be added back in the future with better functionality)
-
-Modify the add_text_to_image() function to change text overlay and background color:
-* For haikus, set the font size to a smaller value, and change text color to a dark green and background color to a lighter green:
-``` 
-font = ImageFont.truetype("Gabriola.ttf", size=30)```
-text_color = (30, 120, 60)
-bg_color = (200, 255, 200, 120)
-```
-* For bee facts, set the font size to a smaller value, and change text color to a dark yellow and background color to a lighter yellow:
-```
-font = ImageFont.truetype("Gabriola.ttf", size=30)
-text_color = (180, 180, 0)
-bg_color = (255, 255, 200, 120)
-```
-4. **Positioning text overlay**
-* Modify the add_text_to_image() function to change the positioning of the text overlay. For example, to position the text in the center of the image, update the y_position calculation:
-```
-y_position = (image.height - text_height) // 2
-```
-5. **Changing the duration of each image**
+3. **Changing the duration of each image**
 * To change the duration of each image, modify the set_duration() parameter in the create_video() function. For example, set the duration to 5 seconds per image:
 ```
 image_clips = [mpy.ImageClip(img).set_duration(5) for img in image_filenames]
 ```
-6 . **Changing the number of images**
+4 . **Changing the number of images**
 * To change the number of images, update the num_prompts parameter in the extract_image_prompts() function. For example, to generate 6 images, change the function call as follows:
  ```
 def extract_image_prompts(story, num_prompts=5):
 ```
-7. **Changing the voice used for the voiceover**
+5. **Changing the voice used for the voiceover**
 * To change the voice for the voiceover, modify the generate_voiceover() function. Update the URL used in the requests.post() call with the desired voice ID. For example, to use a different voice, replace the existing voice ID with a new one (e.g., "21m00Tcm4TlvDq8ikWAM", "yoZ06aMxZJJ28mfd3POQ", or "AZnzlk1XvdvUeBnXmlld"):
 ```
 response = requests.post("https://api.elevenlabs.io/v1/text-to-speech/NEW_VOICE_ID", headers=headers, json=data)
