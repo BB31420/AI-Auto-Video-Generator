@@ -41,7 +41,7 @@ This helps keep packages seperate to avoid conflicts. Use the venv when running 
 - On macOS, you can use Homebrew: brew install ffmpeg
 - On Linux, you can use your package manager (e.g., apt-get install ffmpeg on Ubuntu)
 - On Windows, you can download an installer from the official FFmpeg website
-5. Install spacy ```python -m spacy download en_core_web_sm```
+5. Install spacy: ```python -m spacy download en_core_web_sm```
 
 
 
