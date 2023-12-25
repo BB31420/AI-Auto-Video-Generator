@@ -81,12 +81,12 @@ This instructable will guide you through modifying the provided code to focus on
 1. **Example prompts**
  * For haikus, enter a prompt related to haikus: 
 ```
-"Create a haiku about nature"
+Create a haiku about nature
 ```
 
 * For bee facts, use a prompt related to bees: 
 ```
-"Tell me 5 interesting facts about bees"
+Tell me 5 interesting facts about bees
 ```
 2. **Changing the models**
 
