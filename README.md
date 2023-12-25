@@ -78,15 +78,15 @@ Replace your_openai_api_key and your_elevenlabs_api_key with your actual API key
 
 This instructable will guide you through modifying the provided code to focus on generating haikus and fact-based videos about bees. We'll cover changing the prompt, the models, text overlay, and background color and positioning.
 
-1. **Changing the prompt**
- * For haikus, replace the user input prompt with a fixed prompt related to haikus: 
+1. **Example prompts**
+ * For haikus, enter a prompt related to haikus: 
 ```
-story_prompt = "Create a haiku about nature"
+"Create a haiku about nature"
 ```
 
-* For bee facts, use a fixed prompt related to bees: 
+* For bee facts, use a prompt related to bees: 
 ```
-story_prompt = "Tell me 5 interesting facts about bees"
+"Tell me 5 interesting facts about bees"
 ```
 2. **Changing the models**
 
