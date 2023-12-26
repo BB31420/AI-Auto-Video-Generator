@@ -6,7 +6,7 @@ An AI-powered storytelling video generator that takes user input as a story prom
 [![Example 1](https://img.youtube.com/vi/Vzcras5Snyo/0.jpg)](https://www.youtube.com/watch?v=Vzcras5Snyo)
 
 
-### To DO: Add subtitle generation, font customization, etc. Add zoom in feature for images to add a sense of motion. All contributors are welcome. 
+### To DO: Add zoom in feature for images to add a sense of motion. All contributors are welcome. 
 
 
 ## Getting Started
@@ -50,17 +50,20 @@ This helps keep packages seperate to avoid conflicts. Use the venv when running 
 
 1. Edit the file named .env in the project directory and add your API keys: 
 
-`OPENAI_API_KEY=your_openai_api_key`
+ `OPENAI_API_KEY=your_openai_api_key`
 
-`ELEVENLABS_API_KEY=your_elevenlabs_api_key`
+ `ELEVENLABS_API_KEY=your_elevenlabs_api_key`
 
-Replace your_openai_api_key and your_elevenlabs_api_key with your actual API keys.
+ * Replace your_openai_api_key and your_elevenlabs_api_key with your actual API keys.
 
-2. Run the autovideo.py script by navigating to the directory the script and .env file are saved. Output will be generated in the same folder: 
+2. Edit the file named caption_generator.py with your desired font path, specify the directory and font name.
+   * Linux fonts can be found at: `"/usr/share/fonts"`
+   * Windows fonts can be found at: `C:\Windows\Fonts` 
+4. Run the autovideo.py script by navigating to the directory the script and .env file are saved. Output will be generated in the same folder: 
 
-`python main.py`
-
-3. Follow the prompts to enter a story prompt and generate a video.
+* Windows: `python main.py`
+* Linux: 'python3 main.py'
+4. Follow the prompts to enter a story prompt and generate a video.
 
 ### Troubleshooting
 * If you encounter errors related to missing dependencies, make sure you have installed the required Python packages by running `pip install -r requirements.txt`
