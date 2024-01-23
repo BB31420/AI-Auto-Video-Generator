@@ -32,7 +32,7 @@ murmurhash==1.0.10
 numpy==1.26.2
 openai==0.28.0
 packaging==23.2
-Pillow==10.1.0
+Pillow==10.2.0
 preshed==3.0.9
 proglog==0.1.10
 pydantic==2.5.2
