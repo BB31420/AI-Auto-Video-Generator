@@ -54,7 +54,18 @@ This helps keep packages seperate to avoid conflicts. Use the venv when running 
 
  `ELEVENLABS_API_KEY=your_elevenlabs_api_key`
 
- * Replace your_openai_api_key and your_elevenlabs_api_key with your actual API keys.
+ `SIXTYDB_API_KEY=your_60db_api_key`
+
+ * Replace the placeholders with your actual API keys.
+
+#### Choosing the voiceover (TTS) provider
+
+The voiceover supports **two interchangeable backends — 60db and ElevenLabs** — that return identical MP3 audio, so the rest of the pipeline is unaffected by which one runs.
+
+ * `TTS_PROVIDER=60db` (default) or `TTS_PROVIDER=elevenlabs` selects the **primary** provider in `.env`.
+ * If the primary provider fails or its API key is missing, the code **automatically falls back** to the other provider, so a single bad key never breaks a run.
+ * 60db uses its **system default voice** unless you set `SIXTYDB_VOICE_ID` to a specific voice UUID. To list the voices on your account, run `python voiceover_generator.py` (calls 60db's `GET /myvoices`).
+ * Voice expressiveness for both providers is controlled by the shared `STABILITY`/`SIMILARITY` constants in `voiceover_generator.py` (normalized 0.0–1.0; automatically mapped to each provider's scale).
 
 2. Edit the file named caption_generator.py with your desired font path, specify the directory and font name.
    * Linux fonts can be found at: `"/usr/share/fonts"`
